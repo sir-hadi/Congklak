@@ -35,14 +35,14 @@ public class Congklak {
         fillBoard(emptyBoard, 0);
 
         //Loop while arrays value is not 0 on every element/index array
-        while (!Arrays.equals(board, emptyBoard)) {
-           if (!Arrays.equals( Arrays.copyOfRange(board, 0, (board.length/2)) , Arrays.copyOfRange(emptyBoard, 0, (emptyBoard.length/2)))) {
+        while (!isFullBoardEmpty()) {
+           if (!isBoardSideEmpty(1)) {
             play(1);
             System.out.println("======Player 1======");
             viewBoard();
             System.out.println("====================");
             }
-            if (!Arrays.equals( Arrays.copyOfRange(board,(board.length/2) , board.length) , Arrays.copyOfRange(emptyBoard,(emptyBoard.length/2) , emptyBoard.length)) ) {
+            if (!isBoardSideEmpty(2) ) {
             play(2);
             System.out.println("======Player 2======");
             viewBoard();
@@ -59,6 +59,20 @@ public class Congklak {
 
     }
 
+    private static boolean isFullBoardEmpty(){
+        return Arrays.equals(board, emptyBoard);
+    }
+
+    private static boolean isBoardSideEmpty(int player){
+        if (player == 1){
+            return Arrays.equals( Arrays.copyOfRange(board, 0, (board.length/2)) , Arrays.copyOfRange(emptyBoard, 0, (emptyBoard.length/2)));
+        }else if (player == 2){
+            return Arrays.equals( Arrays.copyOfRange(board,(board.length/2) , board.length) , Arrays.copyOfRange(emptyBoard,(emptyBoard.length/2) , emptyBoard.length));
+        }else {
+            return false;
+        }
+    }
+
     private static void fillBoard(int[] board, int s) {
         for (int i = 0; i < board.length; i++) {
             board[i] = s;
@@ -66,9 +80,20 @@ public class Congklak {
     }
 
     private static void viewBoard() {
-        for (int i = 0; i < board.length; i++) {
-            System.out.println(i + " - " + board[i]);
+        System.out.print(" ");
+        for (int i = 0; i < board.length/2; i++) {
+            System.out.print("[ " + board[i] + " ]");
         }
+        System.out.print("\n{"+score1+"}");
+        for (int i = 0; i < board.length*2 ; i++) {
+            System.out.print(" ");
+        }
+        System.out.print("{"+score2+"}\n");
+        System.out.print(" ");
+        for (int i = board.length -1 ; i >= board.length/2; i--) {
+            System.out.print("[ " + board[i] + " ]");
+        }
+        System.out.println();
     }
 
     private static void play(int player) {
