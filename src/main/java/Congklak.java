@@ -36,18 +36,18 @@ public class Congklak {
 
         //Loop while arrays value is not 0 on every element/index array
         while (!Arrays.equals(board, emptyBoard)) {
-//           if (!Arrays.equals( Arrays.copyOfRange(board, 0, (board.length/2)-1) , Arrays.copyOfRange(emptyBoard, 0, (emptyBoard.length/2)-1))) {
+           if (!Arrays.equals( Arrays.copyOfRange(board, 0, (board.length/2)) , Arrays.copyOfRange(emptyBoard, 0, (emptyBoard.length/2)))) {
             play(1);
-//            }
-            System.out.println("====================");
+            System.out.println("======Player 1======");
             viewBoard();
             System.out.println("====================");
-//            if (!Arrays.equals( Arrays.copyOfRange(board,(board.length/2) , board.length-1) , Arrays.copyOfRange(emptyBoard,(emptyBoard.length/2) , emptyBoard.length-1)) ) {
+            }
+            if (!Arrays.equals( Arrays.copyOfRange(board,(board.length/2) , board.length) , Arrays.copyOfRange(emptyBoard,(emptyBoard.length/2) , emptyBoard.length)) ) {
             play(2);
-//           }
-            System.out.println("====================");
+            System.out.println("======Player 2======");
             viewBoard();
             System.out.println("====================");
+           }
         }
         if (score1>score2){
             System.out.println(score1 +":"+score2);
