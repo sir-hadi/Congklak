@@ -1,6 +1,6 @@
 
 import java.util.Arrays;
-//import java.util.Scanner;
+import java.util.Scanner;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,18 +21,19 @@ public class Congklak {
     static int score2;
 
     public static void main(String[] arg) {
-        double startTime = System.nanoTime();
-//        Scanner scan = new Scanner(System.in);
-//        System.out.print("Input number of small holes : ");
-        n = 1;//scan.nextInt();
-//        System.out.print("Input number of seed in holes : ");
-        s = 8;//scan.nextInt();
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Input number of small holes : ");
+        n = scan.nextInt();
+        System.out.print("Input number of seed in holes : ");
+        s = scan.nextInt();
         board = new int[(n * 2)];
         emptyBoard = new int[(n * 2)];
-
+        
         //fills board with s number on every element/index array
         fillBoard(board, s);
         fillBoard(emptyBoard, 0);
+        
+        double startTime = System.nanoTime();
 
         //Loop while arrays value is not 0 on every element/index array
         while (!isFullBoardEmpty()) {
