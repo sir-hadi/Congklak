@@ -1,6 +1,6 @@
 
 import java.util.Arrays;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,12 +21,12 @@ public class Congklak {
     static int score2;
 
     public static void main(String[] arg) {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Input number of small holes : ");
-        n = scan.nextInt();
-        System.out.print("Input number of seed in holes : ");
-        s = scan.nextInt();
-
+        double startTime = System.nanoTime();
+//        Scanner scan = new Scanner(System.in);
+//        System.out.print("Input number of small holes : ");
+        n = 1;//scan.nextInt();
+//        System.out.print("Input number of seed in holes : ");
+        s = 8;//scan.nextInt();
         board = new int[(n * 2)];
         emptyBoard = new int[(n * 2)];
 
@@ -56,6 +56,11 @@ public class Congklak {
             System.out.println(score1 +":"+score2);
             System.out.println("Player 2 Won");
         }
+        double endTime   = System.nanoTime();
+        double totalTime = endTime - startTime;
+        System.out.println("Total Time (in nano) : "+totalTime);
+        System.out.println("Total Time (in miliseconds) : "+totalTime/1000000);
+        System.out.println("Total Time (in seconds) : "+totalTime/1000000000);
 
     }
 
