@@ -32,9 +32,8 @@ public class Congklak {
         //fills board with s number on every element/index array
         fillBoard(board, s);
         fillBoard(emptyBoard, 0);
-        
-        double startTime = System.nanoTime();
 
+        double startTime = System.nanoTime(); //start timing
         //Loop while arrays value is not 0 on every element/index array
         while (!isFullBoardEmpty()) {
            if (!isBoardSideEmpty(1)) {
@@ -50,6 +49,7 @@ public class Congklak {
             System.out.println("====================");
            }
         }
+
         if (score1>score2){
             System.out.println(score1 +":"+score2);
             System.out.println("Player 1 Won");
@@ -57,6 +57,7 @@ public class Congklak {
             System.out.println(score1 +":"+score2);
             System.out.println("Player 2 Won");
         }
+
         double endTime   = System.nanoTime();
         double totalTime = endTime - startTime;
         System.out.println("Total Time (in nano) : "+totalTime);
